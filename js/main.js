@@ -56,27 +56,26 @@ $('#contentNav .nav-link').click(function (e){
  $('#content').fadeOut(500, function (){
   $('#content').load(page)
 }).fadeIn(500)
-
+})
 /* Using local json file with ajax*/
 $.ajax({
   url:'data/posts.json',
   type:'get',
   dataType: 'json'
+
 }).done(function(data){
   //var posts = json.parse(data)
   console.log(data)
   var numPosts = data.posts.length
   for (var i = 0; i < numPosts; i++){
-var post = '<div class="col-sm-6 p-5"><h3>'
-post += (i+1) +'.'+data.posts[i].title
-post +='</h3><p>'
-post +=data.posts[i].body
-post +='</p></div>'
-$('#posts').append(post)
+    var post = '<div class="col-sm-6 p-5"><h3>'
+    post += (i+1) +'.'+data.posts[i].title
+    post +='</h3><p>'
+    post +=data.posts[i].body
+    post +='</p></div>'
+    $('#posts').append(post)
 
   }
-})
-
 })
 
 })
